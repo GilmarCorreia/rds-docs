@@ -10,20 +10,21 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
+  title: 'SEER Softwares Documentation',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://rds-docs.github.io',
+  url: 'https://GilmarCorreia.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/rds-docs/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'GilmarCorreia', // Usually your GitHub org/user name.
-  projectName: 'rds-docs.github.io', // Usually your repo name.
+  projectName: 'rds-docs', // Usually your repo name.
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -32,8 +33,8 @@ const config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'pt-BR',
+    locales: ['pt-BR'],
   },
 
   presets: [
@@ -45,8 +46,8 @@ const config = {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/GilmarCorreia/rds-docs.github.io/tree/main/packages/create-docusaurus/templates/shared/',
+          //editUrl:
+          //  'https://github.com/GilmarCorreia/rds-docs.github.io/tree/gh-pages/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
@@ -56,8 +57,8 @@ const config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/GilmarCorreia/rds-docs.github.io/tree/main/packages/create-docusaurus/templates/shared/',
+          //editUrl:
+          //  'https://github.com/GilmarCorreia/rds-docs.github.io/tree/main/packages/create-docusaurus/templates/shared/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -70,18 +71,41 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'rds',
+        path: 'RDS',
+        routeBasePath: 'RDS',
+        sidebarPath: require.resolve('./sidebars.js'),
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'roboshop',
+        path: 'Roboshop',
+        routeBasePath: 'Roboshop',
+        sidebarPath: require.resolve('./sidebars.js'),
+      },
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'My Site',
+        title: 'Home',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
         },
         items: [
+          {to: '/RDS/intro', label: 'RDS', position: 'left'},
+          {to: '/Roboshop/intro', label: 'Roboshop', position: 'left'},
           {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
@@ -90,7 +114,7 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/GilmarCorreia/rds-docs.github.io',
+            href: 'https://github.com/GilmarCorreia/rds-docs',
             label: 'GitHub',
             position: 'right',
           },
@@ -100,14 +124,27 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'SEER Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'RDS',
+                to: '/RDS/intro',
+              },
+              {
+                label: 'Roboshop',
+                to: '/Roboshop/intro',
               },
             ],
           },
+          // {
+          //   title: 'Docs',
+          //   items: [
+          //     {
+          //       label: 'Tutorial',
+          //       to: '/docs/intro',
+          //     },
+          //   ],
+          // },
           {
             title: 'Community',
             items: [
@@ -134,7 +171,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/GilmarCorreia/rds-docs.github.io',
+                href: 'https://github.com/GilmarCorreia/rds-docs',
               },
             ],
           },
