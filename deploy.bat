@@ -1,4 +1,4 @@
-npm run build
+# npm run build
 
 set DEPLOYMENT_BRANCH=main
 set GIT_USER=GilmarCorreia
